@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eshat Jahan Arifa — Biomedical Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12151a;
+    --paper:#eeeae1;
+    --paper-dim:#a9a49a;
+    --signal:#5eeacf;
+    --amber:#c98a4b;
+    --line:#262b34;
+    --line-soft:#1c2129;
+    --maxw: 680px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--signal); color:var(--ink);}
+  a{color:var(--signal); text-decoration:none; border-bottom:1px solid rgba(94,234,207,0.35); transition:border-color .15s ease;}
+  a:hover{border-color:var(--signal);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+
+  header.hero{position:relative; padding:96px 0 64px; overflow:hidden; border-bottom:1px solid var(--line);}
+  .hero-motif{position:absolute; top:-40px; right:-60px; width:420px; height:420px; opacity:0.55; pointer-events:none;}
+  .hero-motif circle{fill:var(--signal); opacity:0.9;}
+  .hero-motif .dim{fill:var(--amber); opacity:0.7;}
+  .hero-motif line{stroke:var(--line); stroke-width:1;}
+  .hero-inner{position:relative; z-index:1;}
+  .eyebrow{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--signal); margin:0 0 18px; letter-spacing:0.02em;}
+  h1{font-family:'Fraunces', serif; font-weight:500; font-size:clamp(36px, 6vw, 52px); line-height:1.05; margin:0 0 14px; color:var(--paper); max-width:13ch;}
+  .role{font-size:18px; color:var(--paper-dim); max-width:44ch; margin:0 0 28px;}
+  .links{display:flex; gap:20px; flex-wrap:wrap; font-family:'IBM Plex Mono', monospace; font-size:13.5px;}
+  .links a{border-bottom:none; color:var(--paper-dim);}
+  .links a:hover{color:var(--signal);}
+
+  section{padding:56px 0; border-bottom:1px solid var(--line-soft);}
+  section:last-of-type{border-bottom:none;}
+  h2{font-family:'Fraunces', serif; font-weight:500; font-size:25px; margin:0 0 24px; color:var(--paper);}
+  p{margin:0 0 16px; color:var(--paper);}
+  p:last-child{margin-bottom:0;}
+  .lede{color:var(--paper-dim); font-size:16px;}
+
+  /* narrative intro */
+  .greet{font-family:'Fraunces', serif; font-size:20px; color:var(--signal); margin:0 0 18px;}
+  .about-text p{font-size:16.5px;}
+
+  /* cv download */
+  .cv-box{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    padding:22px 24px; border:1px solid var(--line); border-radius:3px; background:var(--line-soft);
+  }
+  .cv-box-text{font-size:15px; color:var(--paper-dim);}
+  .cv-box-text strong{color:var(--paper); display:block; font-family:'Fraunces', serif; font-size:18px; margin-bottom:4px; font-weight:500;}
+  .cv-btn{
+    border:1px solid var(--signal); color:var(--signal); border-bottom:1px solid var(--signal);
+    padding:10px 20px; border-radius:2px; font-family:'IBM Plex Mono', monospace; font-size:13.5px; white-space:nowrap;
+  }
+  .cv-btn:hover{background:var(--signal); color:var(--ink);}
+
+  .tl-item{margin-bottom:26px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;}
+  .tl-title{font-weight:600; color:var(--paper); font-size:16.5px;}
+  .tl-date{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--paper-dim); white-space:nowrap;}
+  .tl-org{color:var(--signal); font-size:14.5px; margin:2px 0 8px;}
+  .tl-desc{color:var(--paper-dim); font-size:15.5px; margin:0 0 6px;}
+  .tl-desc:last-child{margin-bottom:0;}
+
+  .pub-item{margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--line-soft);}
+  .pub-item:last-child{margin-bottom:0; padding-bottom:0; border-bottom:none;}
+  .pub-title{color:var(--paper); font-weight:500; font-size:15.5px; margin:0 0 4px;}
+  .pub-meta{color:var(--paper-dim); font-size:14px; margin:0;}
+  .pub-status{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--amber);}
+
+  .skill-row{display:flex; gap:16px; padding:14px 0; border-top:1px solid var(--line-soft); flex-wrap:wrap; align-items:baseline;}
+  .skill-row:last-child{border-bottom:1px solid var(--line-soft);}
+  .skill-cat{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--paper-dim); width:190px; flex-shrink:0;}
+  .skill-vals{color:var(--paper); font-size:15px;}
+
+  .ach-list{list-style:none; margin:0; padding:0;}
+  .ach-list li{padding:10px 0; border-top:1px solid var(--line-soft); font-size:15.5px; color:var(--paper); display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .ach-list li:last-child{border-bottom:1px solid var(--line-soft);}
+  .ach-year{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--paper-dim); white-space:nowrap;}
+
+  .contact-email{font-family:'Fraunces', serif; font-size:24px; display:inline-block; margin:8px 0 0;}
+  footer{padding:40px 24px; text-align:center; color:var(--paper-dim); font-size:13px; font-family:'IBM Plex Mono', monospace;}
+
+  @media (max-width:560px){
+    header.hero{padding:64px 0 48px;}
+    .hero-motif{width:280px; height:280px; top:-20px; right:-80px;}
+    .skill-cat{width:100%;}
+    .cv-box{flex-direction:column; align-items:flex-start;}
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="hero-motif" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="60" y1="70" x2="180" y2="140"/>
+    <line x1="180" y1="140" x2="300" y2="90"/>
+    <line x1="180" y1="140" x2="220" y2="260"/>
+    <line x1="220" y1="260" x2="120" y2="320"/>
+    <line x1="220" y1="260" x2="330" y2="300"/>
+    <line x1="60" y1="70" x2="120" y2="320"/>
+    <circle class="dim" cx="60" cy="70" r="5"/>
+    <circle cx="180" cy="140" r="7"/>
+    <circle class="dim" cx="300" cy="90" r="4"/>
+    <circle cx="220" cy="260" r="6"/>
+    <circle class="dim" cx="120" cy="320" r="4"/>
+    <circle cx="330" cy="300" r="5"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Biomedical Engineering</p>
+    <h1>Eshat Jahan Arifa</h1>
+    <p class="role">B.Sc. in Biomedical Engineering, Chittagong University of Engineering &amp; Technology (CUET).</p>
+    <div class="links">
+      <a href="mailto:eshatarifa@gmail.com">Email</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Google Scholar</a>
+      <a href="#">ResearchGate</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about">
+    <p class="greet">Hello, I'm Eshat Jahan Arifa.</p>
+    <div class="about-text">
+      <p>I recently completed my B.Sc. in Biomedical Engineering. During my academic journey, I gained research and teamwork experience in areas like biomaterials, biomedical signal processing and hardware designing — from decoding EEG signals to building the wearable systems that capture them in the first place.</p>
+      <p class="lede">Right now, I'm working on electrochemical projects, getting hands-on experience in this field</p>
+    </div>
+  </section>
+
+  <section id="cv">
+    <div class="cv-box">
+      <div class="cv-box-text">
+        <strong>Curriculum Vitae</strong>
+        Full academic history, coursework, and references
+      </div>
+      <a class="cv-btn" href="CV.pdf" target="_blank" rel="noopener">View CV →</a>
+    </div>
+  </section>
+
+  <section id="research-interests">
+    <h2>Research interests</h2>
+    <p class="lede">Biomedical Signal Processing · Biosensors and Biomedical Sensing · Electrochemical Sensing · Medical Image Analysis · Neural Engineering and Brain-Computer Interfaces · Biomaterials and Drug Delivery Systems</p>
+  </section>
+
+  <section id="work-experience">
+    <h2>Work experience</h2>
+    <div class="tl-item">
+      <div class="tl-head">
+        <span class="tl-title">Research Assistant, Electrochemical Lab, CUET</span>
+        <span class="tl-date">Jul 2026 – Present</span>
+      </div>
+      <div class="tl-org">Supervisors: Dr. Sumit Majumder and Dr. Arup Kumer Roy</div>
+      <p class="tl-desc">Conducting electrochemical measurements and analyzing responses for hydrocortisone detection (work in progress).</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head">
+        <span class="tl-title">Intern, Tradevision LTD</span>
+        <span class="tl-date">Apr 2025 – May 2025</span>
+      </div>
+      <p class="tl-desc">Gained practical exposure to the operation of CT scanners, CT simulators, ultrasonography systems, dialysis machines, and ophthalmology equipment.</p>
+      <p class="tl-desc">Observed ICU facilities, cyclotron systems, medical gas pipeline systems, and hospital waste management practices.</p>
+    </div>
+  </section>
+
+  <section id="research-experience">
+    <h2>Research experience</h2>
+    <div class="tl-item">
+      <div class="tl-head">
+        <span class="tl-title">Undergraduate Thesis — Calendula officinalis Loaded Hydrogel for Wound Dressing</span>
+        <span class="tl-date">Nov 2025 – Jun 2026</span>
+      </div>
+      <div class="tl-org">Supervisor: Ayesha Binth Humayun</div>
+      <p class="tl-desc">Developed and characterized gelatin–sodium alginate hydrogels incorporated with Calendula officinalis extract for potential wound-dressing application. The composition showed better results than existing samples.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head">
+        <span class="tl-title">Member, <a href="https://ttreza.github.io/brainrotlab/">BrainRot Lab</a></span>
+      </div>
+      <p class="tl-desc">Research lab focused on Brain-Computer Interfaces, Machine Learning, and Advanced Signal Processing, based in Chattogram, Bangladesh — co-authored both published papers below through this collaboration.</p>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="pub-item">
+      <p class="pub-title">Spectrogram-driven Emotion Detection from Electroencephalogram</p>
+      <p class="pub-meta">Md. Taisirul Muktadi, Tanzeem Tahmeed Reza, Mohammed Tawshif Hossain, <strong>Eshat Jahan Arifa</strong>, Md. Fazlul Karim Khondakar</p>
+      <p class="pub-meta">2025 4th International Conference on Electrical, Computer and Communication Engineering (ECCE), CUET, Chattogram, Bangladesh, IEEE, 2025. DOI: 10.1109/ECCE64574.2025.11013815. <span class="pub-status">Published</span></p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-title">Novel Task-Specific Features Extraction and Comparative Evaluation for Parkinson's Detection from Digital Pen Signal Data</p>
+      <p class="pub-meta">Tanzeem Tahmeed Reza, Sharafat Hossain, <strong>Eshat Jahan Arifa</strong></p>
+      <p class="pub-meta">2025 IEEE International Conference on Biomedical Engineering, Computer and Information Technology for Health (BECITHCON), IEEE, 2025. DOI: 10.1109/BECITHCON69222.2025.11504012. <span class="pub-status">Published</span></p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Academic projects</h2>
+    <div class="tl-item">
+      <div class="tl-head"><span class="tl-title">Consumer Choice Prediction Using EEG Signals</span><span class="tl-date">2025</span></div>
+      <p class="tl-desc">Developed an EEG-based machine learning framework to classify consumer decisions (Buy vs. No-Buy) using neural activity patterns from the NeuMa dataset.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head"><span class="tl-title">Skin Lesion Boundary Detection Using Classical Image Processing</span><span class="tl-date">2024</span></div>
+      <p class="tl-desc">Developed a medical image segmentation pipeline to detect skin lesion boundaries from dermoscopic images using the PH2 dataset.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head"><span class="tl-title">Movement Pattern Recognition and Phase Detection Using Wearable Sensors</span><span class="tl-date">2024</span></div>
+      <p class="tl-desc">Built a wearable motion classification system to identify standing, walking, and falling phases.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head"><span class="tl-title">Digital Stethoscope for Real-Time Auscultation Monitoring</span><span class="tl-date">2024</span></div>
+      <p class="tl-desc">Designed a real-time biomedical monitoring architecture for capturing and wirelessly transmitting heart and lung sound data.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head"><span class="tl-title">Smart Moisture Detection System for Bedridden Patients</span><span class="tl-date">2023</span></div>
+      <p class="tl-desc">Developed a low-cost embedded healthcare solution for detecting moisture conditions in bedridden patients.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical skills</h2>
+    <div class="skill-row"><div class="skill-cat">Programming &amp; libraries</div><div class="skill-vals">Python, C/C++, NumPy, Pandas, SciPy, Scikit-learn, Matplotlib</div></div>
+    <div class="skill-row"><div class="skill-cat">Biomedical computing &amp; lab</div><div class="skill-vals">MATLAB, Simulink, EEGLAB, AutoDock Vina, PyMOL, Signal Processing, Medical Image Analysis, Machine Learning, Cyclic Voltammetry, Potentiostat Operation, Hydrogel Fabrication, In-vitro testing</div></div>
+    <div class="skill-row"><div class="skill-cat">Documentation</div><div class="skill-vals">LaTeX / Overleaf, Microsoft Word, Excel, PowerPoint</div></div>
+  </section>
+
+  <section id="achievements">
+    <h2>Achievements &amp; certifications</h2>
+    <ul class="ach-list">
+      <li><span>Competed in NASA International Space Apps Challenge — Galactic Problem Solver</span><span class="ach-year">2025</span></li>
+      <li><span>Competed in NASA International Space Apps Challenge — Galactic Problem Solver</span><span class="ach-year">2024</span></li>
+      <li><span>Champion, BioOlympiad — Dept. of Biomedical Engineering, CUET</span><span class="ach-year">2025</span></li>
+      <li><span>Champion, Idea Contest — Dept. of Biomedical Engineering, CUET</span><span class="ach-year">2025</span></li>
+      <li><span>Champion, Idea Contest — Dept. of Biomedical Engineering, CUET</span><span class="ach-year">2022</span></li>
+      <li><span>Finalist, Face the Case Competition — IEEE CUET Student Branch</span><span class="ach-year">2025</span></li>
+      <li><span>Finalist, Face the Case Competition — IEEE CUET Student Branch</span><span class="ach-year">2023</span></li>
+      <li><span>Participant, 3-Minute Thesis (3MT) Competition, SciBlitz 2.0 — IEEE CUET Student Branch</span><span class="ach-year">2026</span></li>
+    </ul>
+  </section>
+
+  <section id="involvement">
+    <h2>Extracurricular &amp; volunteer activities</h2>
+    <div class="tl-item">
+      <div class="tl-head"><span class="tl-title">Joint General Secretary, IEEE EMBS CUET Student Chapter</span><span class="tl-date">Aug 2025 – Aug 2026</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head"><span class="tl-title">Assistant General Secretary, BMES CUET</span><span class="tl-date">Aug 2025 – Aug 2026</span></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="lede">Open to hearing from PhD programs, labs, and collaborators.</p>
+    <a class="contact-email" href="mailto:eshatarifa@gmail.com">eshatarifa@gmail.com</a>
+  </section>
+
+</main>
+
+<footer>Eshat Jahan Arifa · last updated 2026</footer>
+
+</body>
+</html>
